@@ -1,0 +1,21 @@
+<h1> My Task </h1>
+
+
+
+<ul>
+  <% @tasks.each do |task| %>
+    <%# if it is completed: true, tick box icon; else empty icon %>
+    <div class="task-table">
+      <div>
+        <% if task.completed %>
+          <%= image_tag("checked-box.png", width: '25px') %>
+        <% else %>
+          <%= image_tag("check-box.png", width: '25px') %>
+        <% end %>
+      </div>
+      <li><%= link_to task.title, task_path(task) %></li>
+    </div>
+  <% end %>
+</ul>
+
+<%= link_to "Create New Task", new_task_path %>
